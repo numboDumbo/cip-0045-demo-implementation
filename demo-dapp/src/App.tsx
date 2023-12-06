@@ -84,17 +84,16 @@ const App = () => {
 
       const dAppInfo: Omit<IDAppInfos, 'address'> = {
         name: 'Test Dapp 1',
-        url: 'http://localhost:3001/',
+        url: 'http://localhost:3000/',
       };
 
       dAppConnect.current = new DAppPeerConnect({
         dAppInfo: dAppInfo,
         announce: [
-          'wss://tracker.openwebtorrent.com',
-          'wss://dev.tracker.cf-identity-wallet.metadata.dev.cf-deployments.org',
+          'https://pro.passwordchaos.gimbalabs.io',
           'wss://tracker.files.fm:7073/announce',
+          'wss://tracker.btorrent.xyz',
           'ws://tracker.files.fm:7072/announce',
-          'wss://tracker.openwebtorrent.com:443/announce',
         ],
         onApiInject: onApiInject,
         onApiEject: onApiEject,

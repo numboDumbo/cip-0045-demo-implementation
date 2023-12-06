@@ -19,7 +19,7 @@ const Home = () => {
   const [meerkatAddress, setMeerkatAddress] = useState('');
 
   let walletInfo = {
-    address: 'http://localhost:3002/home',
+    address: 'http://localhost:3000/home',
     name: 'demo_wallet',
     icon: icon,
     version: '0.0.1',
@@ -35,13 +35,16 @@ const Home = () => {
   ];
 
   const [boostPeerConnect, setBoostPeerConnect] = React.useState(
-    () =>
-      new DemoWalletConnect(
-        walletInfo,
-        localStorage.getItem('meerkat-boostwallet-seed'),
-        announce
-      )
+    new DemoWalletConnect(
+      walletInfo,
+      localStorage.getItem('meerkat-boostwallet-seed'),
+      announce
+    )
   );
+
+  useEffect(() => {
+    console.log(boostPeerConnect);
+  }, [boostPeerConnect])
 
   window.addEventListener('beforeunload', (event: any) => {
     if (boostPeerConnect) {
@@ -56,12 +59,12 @@ const Home = () => {
 
     setConnected(
       'Connected to ' +
-        connectMessage.dApp.name +
-        ' (' +
-        connectMessage.dApp.address +
-        ' at: ' +
-        connectMessage.dApp.url +
-        ')'
+      connectMessage.dApp.name +
+      ' (' +
+      connectMessage.dApp.address +
+      ' at: ' +
+      connectMessage.dApp.url +
+      ')'
     );
   });
 
