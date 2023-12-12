@@ -76,6 +76,8 @@ export class DemoWalletConnect extends CardanoPeerConnect {
     );
   }
 
+  // CIP30 methods can be used by
+  // const api = await window.cardano.demo_wallet.enable();
   async getRewardAddresses(): Promise<Cbor[]> {
     const rewardAddresses = [
       'e1820506cb0ce54ae755b2512b6cf31856d7265e8792cb86afc94e0872',
